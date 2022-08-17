@@ -15,3 +15,7 @@ Extend either one depending on whether you are wrapping a tool or a workflow
 ```
 java -jar ~/.dockstore/libraries/cromwell-29.jar run --inputs md5sum.wdl.json checker.wdl
 ```
+
+## With Dockstore CLI
+
+If the Dockstore CLI is setup, the github actions setup in this repo demonstrate how to run these workflows with it. 
