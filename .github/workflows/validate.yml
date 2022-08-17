@@ -3,24 +3,25 @@ name: Validate workflows
 on: [push]
 
 jobs:
+  build:
 
-  runs-on: ubuntu-22.04
+    runs-on: ubuntu-22.04
 
-  steps:
-  - uses: actions/checkout@v3
+    steps:
+    - uses: actions/checkout@v3
 
-  - uses: actions/setup-python@v4
-    with:
-      python-version: '3.9'
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
 
-  - name: Setup engines
-    run: | 
-      url -o requirements.txt "https://raw.githubusercontent.com/dockstore/dockstore/1.13.0-beta.3/dockstore-webservice/src/main/resources/requirements/1.13.0/requirements3.txt"
-      pip3 install --user -r requirements.txt
+    - name: Setup engines
+      run: | 
+        url -o requirements.txt "https://raw.githubusercontent.com/dockstore/dockstore/1.13.0-beta.3/dockstore-webservice/src/main/resources/requirements/1.13.0/requirements3.txt"
+        pip3 install --user -r requirements.txt
 
-  - run: sudo apt-get install -y moreutils
+    - run: sudo apt-get install -y moreutils
 
-  - name: Validate all the things 
-    run: | 
-      cwltool --validate checker_workflow_wrapping_tool.cwl
-      cwltool --validate checker_workflow_wrapping_workflow.cwl
+    - name: Validate all the things 
+      run: | 
+        cwltool --validate checker_workflow_wrapping_tool.cwl
+        cwltool --validate checker_workflow_wrapping_workflow.cwl

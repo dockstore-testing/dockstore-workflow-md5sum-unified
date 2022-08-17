@@ -3,37 +3,38 @@ name: Test workflows
 on: [push]
 
 jobs:
-  runs-on: ubuntu-22.04
+  build:
+    runs-on: ubuntu-22.04
 
-  steps:
+    steps:
 
-  - uses: actions/setup-python@v4
-    with:
-      python-version: '3.9'
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
 
-  - name: Setup engines
-    run: |
-      url -o requirements.txt "https://raw.githubusercontent.com/dockstore/dockstore/1.13.0-beta.3/dockstore-webservice/src/main/resources/requirements/1.13.0/requirements3.txt"
-      pip3 install --user -r requirements.txt
+    - name: Setup engines
+      run: |
+        url -o requirements.txt "https://raw.githubusercontent.com/dockstore/dockstore/1.13.0-beta.3/dockstore-webservice/src/main/resources/requirements/1.13.0/requirements3.txt"
+        pip3 install --user -r requirements.txt
         
-  - name: Setup CLI 
-    run: | 
-      curl -L -o dockstore https://github.com/dockstore/dockstore/releases/download/1.12.2/dockstore
-      chmod +x dockstore       
-      mkdir /home/runner/dockstore_bin
-      mv dockstore /home/runner/dockstore_bin
-      echo "/home/runner/dockstore_bin" >> $GITHUB_PATH
-  - name: Prime CLI
-    run: | 
-      echo "$PATH"
-      mkdir ~/.dockstore
-      dockstore
+    - name: Setup CLI 
+      run: | 
+        curl -L -o dockstore https://github.com/dockstore/dockstore/releases/download/1.12.2/dockstore
+        chmod +x dockstore       
+        mkdir /home/runner/dockstore_bin
+        mv dockstore /home/runner/dockstore_bin
+        echo "/home/runner/dockstore_bin" >> $GITHUB_PATH
+    - name: Prime CLI
+      run: | 
+        echo "$PATH"
+        mkdir ~/.dockstore
+        dockstore
 
-  - name: Run cwl workflows with CLI
-    run: |
-      dockstore --script  workflow launch --local-entry  checker_workflow_wrapping_workflow.cwl --json md5sum.json
-      dockstore --script  workflow launch --local-entry  checker_workflow_wrapping_tool.cwl --json md5sum.json
+    - name: Run cwl workflows with CLI
+      run: |
+        dockstore --script  workflow launch --local-entry  checker_workflow_wrapping_workflow.cwl --json md5sum.json
+        dockstore --script  workflow launch --local-entry  checker_workflow_wrapping_tool.cwl --json md5sum.json
 
-  - name: Run wdl workflow with CLI
-    run: |
-      dockstore --script  workflow launch --local-entry checker.wdl  --json md5sum.wdl.json
+    - name: Run wdl workflow with CLI
+      run: |
+        dockstore --script  workflow launch --local-entry checker.wdl  --json md5sum.wdl.json
