@@ -28,7 +28,9 @@ jobs:
       run: | 
         echo "$PATH"
         mkdir ~/.dockstore
+        printf "cromwell-vm-options: -DLOG_LEVEL=ERROR\nserver-url: https://dockstore.org/api" > ~/.dockstore/config
         dockstore
+
 
     - name: Run cwl workflows with CLI
       run: |
