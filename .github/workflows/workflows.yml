@@ -31,11 +31,9 @@ jobs:
         printf "cromwell-vm-options: -DLOG_LEVEL=ERROR\nserver-url: https://dockstore.org/api" > ~/.dockstore/config
         dockstore
 
-
     - name: Run cwl workflows with CLI
       run: |
-        dockstore --script  workflow launch --local-entry  checker_workflow_wrapping_workflow.cwl --json md5sum.json
-        dockstore --script  workflow launch --local-entry  checker_workflow_wrapping_tool.cwl --json md5sum.json
+        bash cli-script.sh
 
     - name: Run wdl workflow with CLI
       run: |
