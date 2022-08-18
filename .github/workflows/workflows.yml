@@ -29,6 +29,8 @@ jobs:
       run: | 
         echo "$PATH"
         mkdir ~/.dockstore
+        # we recommend suppressing INFO output for Cromwell, but if you run into a problem
+        # you may need to change ERROR to INFO
         printf "cromwell-vm-options: -DLOG_LEVEL=ERROR\nserver-url: https://dockstore.org/api" > ~/.dockstore/config
         dockstore
 
