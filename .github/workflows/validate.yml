@@ -29,4 +29,4 @@ jobs:
     - name: Validate wdl
       run: | 
         wget https://github.com/broadinstitute/cromwell/releases/download/83/womtool-83.jar
-        java -jar womtool.jar validate checker.wdl
+        java -jar womtool-83.jar validate checker.wdl
