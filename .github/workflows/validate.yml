@@ -21,7 +21,12 @@ jobs:
 
     - run: sudo apt-get install -y moreutils
 
-    - name: Validate all the things 
+    - name: Validate cwl
       run: | 
         cwltool --validate checker_workflow_wrapping_tool.cwl
         cwltool --validate checker_workflow_wrapping_workflow.cwl
+
+    - name: Validate wdl
+      run: | 
+        wget https://github.com/broadinstitute/cromwell/releases/download/83/womtool-83.jar
+        java -jar womtool.jar validate checker.wdl

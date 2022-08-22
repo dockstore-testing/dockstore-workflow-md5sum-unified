@@ -34,7 +34,8 @@ jobs:
 
     - name: Run cwl workflows with CLI
       run: |
-        bash cli-script.sh
+        dockstore --script  workflow launch --local-entry checker_workflow_wrapping_workflow.cwl --json md5sum.json
+        dockstore --script  workflow launch --local-entry checker_workflow_wrapping_tool.cwl --json md5sum.json
 
     - name: Run wdl workflow with CLI
       run: |
