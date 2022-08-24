@@ -1,0 +1,32 @@
+name: Validate workflows
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-22.04
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Setup engines
+      run: | 
+        curl -o requirements.txt "https://raw.githubusercontent.com/dockstore/dockstore/1.13.0-beta.3/dockstore-webservice/src/main/resources/requirements/1.13.0/requirements3.txt"
+        pip3 install --user -r requirements.txt
+
+    - run: sudo apt-get install -y moreutils
+
+    - name: Validate cwl
+      run: | 
+        cwltool --validate checker_workflow_wrapping_tool.cwl
+        cwltool --validate checker_workflow_wrapping_workflow.cwl
+
+    - name: Validate wdl
+      run: | 
+        wget https://github.com/broadinstitute/cromwell/releases/download/83/womtool-83.jar
+        java -jar womtool-83.jar validate checker.wdl

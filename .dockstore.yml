@@ -1,0 +1,24 @@
+version: 1.2
+tools:
+  - subclass: CWL
+    primaryDescriptorPath: /md5sum/dockstore-tool-md5sum.cwl
+    testParameterFiles:
+      - /md5sum/md5sum.json
+    name: cwl_tool 
+    authors:
+      - orcid: 0000-0002-6130-1021
+workflows:
+  - subclass: CWL
+    primaryDescriptorPath: /md5sum/md5sum.cwl
+    testParameterFiles:
+      - /md5sum/md5sum.json
+    name: cwl_workflow
+    authors:
+      - orcid: 0000-0002-6130-1021
+  - subclass: WDL
+    primaryDescriptorPath: /md5sum/md5sum.wdl
+    testParameterFiles:
+      - /md5sum/md5sum.wdl.json
+    name: wdl
+    authors:
+      - orcid: 0000-0002-6130-1021
