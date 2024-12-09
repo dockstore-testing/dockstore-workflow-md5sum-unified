@@ -13,7 +13,7 @@ doc: |
 
 requirements:
 - class: DockerRequirement
-  dockerPull: quay.io/briandoconnor/dockstore-workflow-md5sum-tester:1.0.0
+  dockerPull: quay.io/dockstore-testing/dockstore-workflow-md5sum-tester:1.0.0
 - class: InlineJavascriptRequirement
 
 hints:
