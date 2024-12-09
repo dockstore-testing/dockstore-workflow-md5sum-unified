@@ -6,9 +6,9 @@ label: A tool that checks the md5sum workflow
 cwlVersion: v1.0
 
 doc: |
-  [![Docker Repository on Quay.io](https://quay.io/repository/briandoconnor/dockstore-tool-md5sum/status "Docker Repository on Quay.io")](https://quay.io/repository/briandoconnor/dockstore-tool-md5sum)
+  [![Docker Repository on Quay.io](https://quay.io/repository/dockstore-testing/dockstore-tool-md5sum/status "Docker Repository on Quay.io")](https://quay.io/repository/briandoconnor/dockstore-tool-md5sum)
   [![Build Status](https://travis-ci.org/briandoconnor/dockstore-tool-md5sum.svg)](https://travis-ci.org/briandoconnor/dockstore-tool-md5sum)
-  A very, very simple Docker container that checks the output of the https://github.com/briandoconnor/dockstore-workflow-md5sum workflow. This was used in the GA4GH/DREAM Infrastructure Challenge Phase 2.  See the [README](https://github.com/briandoconnor/dockstore-workflow-md5sum-tester/blob/master/README.md) for more information.
+  A very, very simple Docker container that checks the output of the https://github.com/dockstore-testing/dockstore-workflow-md5sum workflow. This was used in the GA4GH/DREAM Infrastructure Challenge Phase 2.  See the [README](https://github.com/briandoconnor/dockstore-workflow-md5sum-tester/blob/master/README.md) for more information.
 
 
 requirements:

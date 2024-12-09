@@ -10,14 +10,14 @@ $namespaces:
  edam: http://edamontology.org/
 
 doc: |
-  [![Docker Repository on Quay.io](https://quay.io/repository/briandoconnor/dockstore-tool-md5sum/status "Docker Repository on Quay.io")](https://quay.io/repository/briandoconnor/dockstore-tool-md5sum)
+  [![Docker Repository on Quay.io](https://quay.io/repository/dockstore-testing/dockstore-tool-md5sum/status "Docker Repository on Quay.io")](https://quay.io/repository/briandoconnor/dockstore-tool-md5sum)
   [![Build Status](https://travis-ci.org/briandoconnor/dockstore-tool-md5sum.svg)](https://travis-ci.org/briandoconnor/dockstore-tool-md5sum)
-  A very, very simple Docker container for the md5sum command. See the [README](https://github.com/briandoconnor/dockstore-tool-md5sum/blob/master/README.md) for more information.
+  A very, very simple Docker container for the md5sum command. See the [README](https://github.com/dockstore-testing/dockstore-tool-md5sum/blob/master/README.md) for more information.
 
 
 requirements:
 - class: DockerRequirement
-  dockerPull: quay.io/briandoconnor/dockstore-tool-md5sum:1.0.4
+  dockerPull: quay.io/dockstore-testing/dockstore-tool-md5sum:1.0.4
 - class: InlineJavascriptRequirement
 
 hints:
