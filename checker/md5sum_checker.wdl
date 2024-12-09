@@ -10,7 +10,7 @@ task checkmd5 {
  }
 
  runtime {
-   docker: "quay.io/briandoconnor/dockstore-workflow-md5sum-tester:1.0.0"
+   docker: "quay.io/dockstore-testing/dockstore-workflow-md5sum-tester:1.0.0"
    cpu: 1
    memory: "512 MB"
    disks: "local-disk 10 HDD"
